@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"postinstall": "wget -O src/lib/index.json http://data.chronicle.ethevents.club/index.json"
+		"postinstall": "wget -O ./src/lib/index.json https://data.chronicle.ethevents.club/index.json"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",

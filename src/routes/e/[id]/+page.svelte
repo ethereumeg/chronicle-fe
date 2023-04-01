@@ -11,4 +11,5 @@
 <div class="">
     <h2 class="font-bold">{item.name}</h2>
     <div>Place: {series?.place}</div>
+    <div class="my-2 p-2 text-sm bg-gray-100"><pre><code>{JSON.stringify(item, null, 2)}</code></pre></div>
 </div>

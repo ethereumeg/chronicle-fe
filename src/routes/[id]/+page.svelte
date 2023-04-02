@@ -9,6 +9,10 @@
     $: ghLink = `https://github.com/ethevents-club/chronicle/blob/main/data/events/${item.date.match(/^(\d{4})/)[1]}/${item.id}/index.yaml`
 </script>
 
+<svelte:head>
+    <title>{item.name} | Chronicle: ETH events</title>
+</svelte:head>
+
 <div class="">
     <h2 class="font-bold">{item.name}</h2>
     <div>Series: {#if series}<a href="/s/{series.id}">{series.name}</a> ({series.place}){:else}-{/if}</div>

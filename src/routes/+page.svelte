@@ -4,6 +4,11 @@
     export let data;
 </script>
 
+
+<svelte:head>
+    <title>Chronicle: ETH events</title>
+</svelte:head>
+
 <div class="">
     <div class="flex gap-2 flex-wrap">
         {#each data.chronicle.series as series}

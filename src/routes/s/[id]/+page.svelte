@@ -10,6 +10,10 @@
     $: events = data.chronicle.events.filter(e => e.series === item.id)
 </script>
 
+<svelte:head>
+    <title>{item.name} (series) | Chronicle: ETH events</title>
+</svelte:head>
+
 <div class="">
     <h2 class="font-bold">{item.name} <span class="font-normal italic">(series)</span></h2>
     <div>Place: {#if item.place}<CountryIcon country={item.country} />{item.place} ({item.region}){:else}variable{/if}</div>

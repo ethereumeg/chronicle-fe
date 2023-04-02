@@ -1,7 +1,11 @@
 <script>
     import EventsTable from '$lib/components/EventsTable.svelte';
+    import { isFuture } from 'date-fns';
 
     export let data;
+
+    $: upcoming = data.chronicle.events.filter(e => isFuture(new Date(e.date))).sort((x, y) => x.date > y.date ? 1 : -1)
+    $: past = data.chronicle.events.filter(e => !isFuture(new Date(e.date))).sort((x, y) => x.date < y.date ? 1 : -1)
 </script>
 
 
@@ -17,6 +21,10 @@
     </div>
 </div>
 <div class="mt-4">
-    <h2>events ({data.chronicle.events.length})</h2>
-    <EventsTable events={data.chronicle.events} chronicle={data.chronicle} />
+    <h2 class="font-semibold">Upcoming Events ({upcoming.length})</h2>
+    <EventsTable events={upcoming} chronicle={data.chronicle} />
+</div>
+<div class="mt-4">
+    <h2 class="font-semibold">Past Events ({past.length})</h2>
+    <EventsTable events={past} chronicle={data.chronicle} />
 </div>

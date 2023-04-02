@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
     import EventsTable from '$lib/components/EventsTable.svelte';
+    import CountryIcon from '$lib/components/CountryIcon.svelte'
 
     export let data;
     export let id;
@@ -10,8 +11,8 @@
 </script>
 
 <div class="">
-    <h2 class="font-bold">{item.name}</h2>
-    <div>Place: {item.place}</div>
+    <h2 class="font-bold">{item.name} <span class="font-normal italic">(series)</span></h2>
+    <div>Place: {#if item.place}<CountryIcon country={item.country} />{item.place} ({item.region}){:else}variable{/if}</div>
 </div>
 
 <div class="mt-4">

@@ -6,8 +6,8 @@
     export let data;
     export let id;
 
-    $: item = data.chronicle.series.find(s => s.id === $page.params.id)
-    $: events = data.chronicle.events.filter(e => e.series === item.id).sort((x,y) => x.date < y.date ? 1 : -1)
+    $: item = data.chronicle.families.find(s => s.id === $page.params.id)
+    $: events = data.chronicle.events.filter(e => e.family === item.id).sort((x,y) => x.date < y.date ? 1 : -1)
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div class="">
-    <h2 class="font-bold">{item.name} <span class="font-normal italic">(series)</span></h2>
+    <h2 class="font-bold">{item.name} <span class="font-normal italic">(family)</span></h2>
     <div>Place: {#if item.place}<CountryIcon country={item.country} />{item.place} ({item.region}){:else}variable{/if}</div>
 </div>
 

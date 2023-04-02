@@ -15,7 +15,7 @@
 
 <div class="">
     <div class="flex gap-2 flex-wrap">
-        {#each data.chronicle.series as series}
+        {#each data.chronicle.series.sort((x,y) => x.name > y.name ? 1 : -1) as series}
             <div><a href="/s/{series.id}">{series.name}</a></div>
         {/each}
     </div>

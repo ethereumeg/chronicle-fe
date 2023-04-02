@@ -23,3 +23,6 @@
     <h2>events ({events.length})</h2>
     <EventsTable events={events} chronicle={data.chronicle} />
 </div>
+<div class="mt-4">
+    <div class="my-2 p-2 text-sm bg-gray-100"><pre><code>{JSON.stringify(item, null, 2)}</code></pre></div>
+</div>

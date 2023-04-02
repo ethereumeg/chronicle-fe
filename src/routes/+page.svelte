@@ -4,8 +4,7 @@
 
     export let data;
 
-    $: upcoming = data.chronicle.events.filter(e => isFuture(new Date(e.date))).sort((x, y) => x.date > y.date ? 1 : -1)
-    $: past = data.chronicle.events.filter(e => !isFuture(new Date(e.date))).sort((x, y) => x.date < y.date ? 1 : -1)
+    $: items = data.chronicle.events.sort((x, y) => x.date < y.date ? 1 : -1)
 </script>
 
 
@@ -21,10 +20,6 @@
     </div>
 </div>
 <div class="mt-4">
-    <h2 class="font-semibold">Upcoming Events ({upcoming.length})</h2>
-    <EventsTable events={upcoming} chronicle={data.chronicle} />
-</div>
-<div class="mt-4">
-    <h2 class="font-semibold">Past Events ({past.length})</h2>
-    <EventsTable events={past} chronicle={data.chronicle} />
+    <h2 class="italic">Events ({items.length})</h2>
+    <EventsTable events={items} chronicle={data.chronicle} />
 </div>
